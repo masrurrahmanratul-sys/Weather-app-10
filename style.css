@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 60%, #1e5f8c 100%);
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.weather-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 12px rgba(100, 180, 255, 0.4));
+}
+
+h1 {
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: rgba(160, 200, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Search */
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#cityInput {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  border: 1.5px solid rgba(100, 160, 255, 0.25);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #e8f4ff;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+#cityInput::placeholder {
+  color: rgba(160, 200, 255, 0.35);
+}
+
+#cityInput:focus {
+  border-color: rgba(100, 180, 255, 0.65);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+#getWeatherBtn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: #2979ff;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#getWeatherBtn:hover {
+  background: #448aff;
+}
+
+#getWeatherBtn:active {
+  transform: scale(0.98);
+}
+
+/* Result card */
+#weatherResult {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(100, 160, 255, 0.18);
+  border-radius: 18px;
+  padding: 1.8rem;
+  color: #d6edff;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  line-height: 2;
+  text-align: center;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#weatherResult:empty::before {
+  content: "Enter a city to see the weather";
+  color: rgba(160, 200, 255, 0.3);
+  font-size: 0.9rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .app-wrapper {
+    gap: 1.2rem;
+  }
+
+  .weather-icon {
+    font-size: 2.8rem;
+  }
+}
